@@ -30,6 +30,8 @@ jobs:
         run: rm -rf .git
       - name: copy gitkeep recursive
         run: find . -type d -exec touch {}/".{gitkeep}"  \;
+      - name: go back to base dir
+        run: cd ../
       - name: Build Gallery 🔧
         run: docker run -v "$(pwd):/work" ghcr.io/thumbsup/thumbsup /bin/sh -c "cd /work/ && thumbsup --config config.json"
       - name: Package and upload artifact 📦
