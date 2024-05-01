@@ -1,4 +1,6 @@
 name: Publish Gallery
+environment:
+  name: github-pages
 on:
   push:
     branches:
