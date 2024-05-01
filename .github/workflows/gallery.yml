@@ -22,6 +22,8 @@ jobs:
           persist-credentials: false
       - name: clone GH repo
         run: git clone https://github.com/ToontownSWFArchive/ttto_kioku gallery
+      - name: copy gitkeep
+        run: cp .gitkeep gallery/.gitkeep
       - name: Build Gallery 🔧
         run: docker run -v "$(pwd):/work" ghcr.io/thumbsup/thumbsup /bin/sh -c "cd /work/ && thumbsup --config config.json"
       - name: Package and upload artifact 📦
